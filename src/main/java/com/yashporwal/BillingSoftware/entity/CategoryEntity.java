@@ -25,9 +25,10 @@ public class CategoryEntity {
     private String categoryId;
     @Column(unique = true)
     private String name;
+    @Column(length = 10000)
     private String description;
     private String bgColor;
-    private String imageUrl;
+    private String imgUrl;
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdAt;

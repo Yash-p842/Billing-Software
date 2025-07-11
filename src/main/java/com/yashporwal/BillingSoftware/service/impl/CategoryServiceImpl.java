@@ -29,7 +29,7 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryResponse add(CategoryRequest request, MultipartFile file) {
         String imageUrl = fileUploadService.uploadFile(file);
         CategoryEntity newCategory = convertToEntity(request);
-        newCategory.setImageUrl(imageUrl);
+        newCategory.setImgUrl(imageUrl);
         newCategory = categoryRepo.save(newCategory);
         return convertToResponse(newCategory);
     }
@@ -46,7 +46,7 @@ public class CategoryServiceImpl implements CategoryService {
     public void delete(String categoryId) {
         CategoryEntity category = categoryRepo.findByCategoryId(categoryId)
                 .orElseThrow(() -> new RuntimeException("Category not Found: " + categoryId));
-        fileUploadService.deleteFile(category.getImageUrl());
+        fileUploadService.deleteFile(category.getImgUrl());
         categoryRepo.delete(category);
     }
 
@@ -58,7 +58,7 @@ public class CategoryServiceImpl implements CategoryService {
                 .bgColor(newCategory.getBgColor())
                 .createdAt(newCategory.getCreatedAt())
                 .updatedAt(newCategory.getUpdatedAt())
-                .imageUrl(newCategory.getImageUrl())
+                .imgUrl(newCategory.getImgUrl())
                 .items(itemRepo.countByCategoryId(newCategory.getId()))
                 .build();
     }

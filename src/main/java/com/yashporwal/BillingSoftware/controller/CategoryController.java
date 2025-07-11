@@ -33,7 +33,7 @@ public class CategoryController {
 
     }
 
-    @GetMapping("/category")
+    @GetMapping("/categories")
     @ResponseStatus(HttpStatus.OK)
     public List<CategoryResponse> fetchCategories(){
         return categoryService.read();

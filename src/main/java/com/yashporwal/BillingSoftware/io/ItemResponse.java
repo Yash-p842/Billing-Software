@@ -18,7 +18,7 @@ public class ItemResponse {
     private String name;
     private String description;
     private BigDecimal price;
-    private String imageUrl;
+    private String imgUrl;
     private String categoryId;
     private String categoryName;
     private Timestamp createdAt;

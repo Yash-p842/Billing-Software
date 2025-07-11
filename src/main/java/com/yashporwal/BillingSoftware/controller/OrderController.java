@@ -28,7 +28,7 @@ public class OrderController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/latest")
     public List<OrderResponse> fetchAllOrders(){
         return orderService.getLatestOrders();
     }

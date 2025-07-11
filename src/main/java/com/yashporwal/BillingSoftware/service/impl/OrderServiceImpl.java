@@ -53,7 +53,7 @@ public class OrderServiceImpl implements OrderService {
                 .orderId(newOrder.getOrderId())
                 .customerName(newOrder.getCustomerName())
                 .phoneNumber(newOrder.getPhoneNumber())
-                .subTotal(newOrder.getSubTotal())
+                .subtotal(newOrder.getSubTotal())
                 .grandTotal(newOrder.getGrandTotal())
                 .tax(newOrder.getTax())
                 .paymentMethod(newOrder.getPaymentMethod())
@@ -61,7 +61,7 @@ public class OrderServiceImpl implements OrderService {
                         .map(this::convertToItemResponse)
                         .collect(Collectors.toList()))
                 .paymentDetails(newOrder.getPaymentDetails())
-                .createAt(newOrder.getCreatedAt())
+                .createdAt(newOrder.getCreatedAt())
                 .build();
     }
 
@@ -78,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
         return OrderEntity.builder()
                 .customerName(request.getCustomerName())
                 .phoneNumber(request.getPhoneNumber())
-                .subTotal(request.getSubTotal())
+                .subTotal(request.getSubtotal())
                 .tax(request.getTax())
                 .grandTotal(request.getGrandTotal())
                 .paymentMethod(PaymentMethod.valueOf(request.getPaymentMethod()))

@@ -27,9 +27,10 @@ public class ItemEntity {
     @Column(unique = true)
     private String itemId;
     private String name;
+    @Column(length = 10000)
     private String description;
     private BigDecimal price;
-    private String imageUrl;
+    private String imgUrl;
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdAt;

@@ -17,11 +17,11 @@ public class OrderResponse {
     private String customerName;
     private String phoneNumber;
     private List<OrderResponse.OrderItemResponse> items;
-    private Double subTotal;
+    private Double subtotal;
     private Double tax;
     private Double grandTotal;
     private PaymentMethod paymentMethod;
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
     private PaymentDetails paymentDetails;
 
 

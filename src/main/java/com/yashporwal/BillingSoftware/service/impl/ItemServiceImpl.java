@@ -37,7 +37,7 @@ public class ItemServiceImpl implements ItemService {
         CategoryEntity category = categoryRepo.findByCategoryId(request.getCategoryId())
                 .orElseThrow(() -> new RuntimeException("Category not found with CategoryId: "+request.getCategoryId()));
         newItem.setCategory(category);
-        newItem.setImageUrl(imageUrl);
+        newItem.setImgUrl(imageUrl);
         newItem = itemRepo.save(newItem);
         return convertToResponse(newItem);
 
@@ -53,7 +53,7 @@ public class ItemServiceImpl implements ItemService {
                 .updatedAt(newItem.getUpdatedAt())
                 .categoryId(newItem.getCategory().getCategoryId())
                 .categoryName(newItem.getCategory().getName())
-                .imageUrl(newItem.getImageUrl())
+                .imgUrl(newItem.getImgUrl())
                 .build();
     }
 
@@ -79,7 +79,7 @@ public class ItemServiceImpl implements ItemService {
     public void deleteItem(String itemId) {
         ItemEntity existingItem = itemRepo.findByItemId(itemId)
                 .orElseThrow(() -> new UsernameNotFoundException("Item not found with ItemId: " + itemId));
-        fileUploadService.deleteFile(existingItem.getImageUrl());
+        fileUploadService.deleteFile(existingItem.getImgUrl());
         itemRepo.delete(existingItem);
     }
 }
